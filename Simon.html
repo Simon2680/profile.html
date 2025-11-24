@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Iradukunda | Personal Portfolio</title>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #111827;
+            color: #F3F4F6;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(17, 24, 39, 0.9);
+            padding: 15px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #F3F4F6;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #60A5FA;
+            text-shadow: 0 0 6px rgba(96, 165, 250, 0.5);
+        }
+
+        /* HEADER */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: #F3F4F6;
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #60A5FA;
+            margin-bottom: 12px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #60A5FA;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .subtitle {
+            margin-top: 6px;
+            font-size: 1.1rem;
+            color: #9CA3AF;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        .intro {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .intro a {
+            color: #60A5FA;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .intro a:hover {
+            color: #93C5FD;
+            text-decoration: underline;
+        }
+
+        .email {
+            margin-top: 5px;
+            font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .email a {
+            color: #60A5FA;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .email a:hover {
+            color: #93C5FD;
+            text-decoration: underline;
+        }
+
+        /* Amherst Logo below name */
+        .amherst-logo {
+            width: 100px;
+            margin-top: 12px;
+            transition: 0.3s;
+        }
+
+        .amherst-logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SECTION FORMAT */
+        section {
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        /* STATS */
+        .stats {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .stat {
+            text-align: center;
+            font-size: 1.2rem;
+            animation: fadeIn 2s;
+            color: #60A5FA;
+        }
+
+        /* TECH STACK */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-item {
+            background: #1F2937;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-item i {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            color: #60A5FA;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.05);
+            background: #374151;
+        }
+
+        /* COURSES CARD */
+        .cs50-card {
+            margin: 25px auto;
+            background: #1F2937;
+            padding: 25px;
+            border-radius: 18px;
+            max-width: 850px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2s;
+        }
+
+        .cs50-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: #60A5FA;
+        }
+
+        .cs50-sub {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .cs50-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .cs50-topic {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .cs50-topic:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .cs50-button {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 20px;
+            background: #60A5FA;
+            color: #111827;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .cs50-button:hover {
+            background: #93C5FD;
+            transform: scale(1.05);
+        }
+
+        /* CONTACT */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+
+        .contact-links a {
+            color: #f0f0f0;
+            font-size: 1.8rem;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #60A5FA;
+            transform: scale(1.2);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">SI</div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Tools</a>
+            <a href="#projects">Projects</a>
+            <a href="#courses">Courses</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header id="home">
+        <img src="ProfilePicture.jpg" alt="Profile Picture" class="profile-pic">
+        <h1 class="title">Simon Iradukunda</h1>
+        <p class="subtitle">Aspiring Computer Scientist & Mathematician</p>
+        <p class="intro">First-Year (Freshman) at <a href="https://www.amherst.edu/" target="_blank">Amherst College</a>
+        </p>
+        <p class="email">📧 <a href="mailto:siradukunda29@amherst.edu">siradukunda29@amherst.edu</a></p>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi, I’m Simon — a passionate learner and builder studying <strong>Computer Science and Mathematics</strong>
+            at Amherst College.
+            I enjoy exploring the intersection of technology and real-world problems, designing software that empowers
+            people, and learning new tools.
+            Beyond coding, I am fascinated by problem-solving, logical thinking, and how mathematics can model and
+            explain complex systems.
+            I am motivated by curiosity, creativity, and the desire to make meaningful contributions both in my
+            community and the wider tech world.
+        </p>
+        <div class="stats">
+            <div class="stat">3+ <br> Projects</div>
+            <div class="stat">4+ <br> Tools I’m Learning</div>
+            <div class="stat">2 <br> Years in Tech</div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>Tools I’m Currently Using & Learning</h2>
+        <div class="tech-grid">
+            <div class="tech-item"><i class="fab fa-python"></i><br>Python</div>
+            <div class="tech-item"><i class="fab fa-java"></i><br>Java</div>
+            <div class="tech-item"><i class="fab fa-js-square"></i><br>JavaScript</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Highlighted Projects</h2>
+        <p>More projects will be added soon.</p>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses">
+        <h2>Technical Coursework</h2>
+
+        <p><em>Coursework taken at Amherst College:</em></p>
+        <ul class="courses-list" style="list-style:none; margin-top:15px;">
+            <li><a href="https://www.amherst.edu/academiclife/departments/courses/2526F/MATH/MATH-121-2526F"
+                    target="_blank">Calculus II (MATH 121)</a></li>
+            <li><a href="https://www.amherst.edu/academiclife/departments/courses/2526F/COSC/COSC-111-2526F"
+                    target="_blank">Intro to Computer Science (COSC 111)</a></li>
+        </ul>
+
+        <div class="cs50-card">
+            <h3><i class="fas fa-graduation-cap"></i> Harvard CS50: Introduction to Computer Science (edX)</h3>
+
+            <p class="cs50-sub">
+                A full introduction to algorithms, programming, systems, and foundational CS concepts.
+            </p>
+
+            <div class="cs50-grid">
+                <div class="cs50-topic">Week 0 — Scratch</div>
+                <div class="cs50-topic">Week 1 — C</div>
+                <div class="cs50-topic">Week 2 — Arrays</div>
+                <div class="cs50-topic">Week 3 — Algorithms</div>
+                <div class="cs50-topic">Week 4 — Memory</div>
+                <div class="cs50-topic">Week 5 — Data Structures</div>
+                <div class="cs50-topic">Week 6 — Python</div>
+                <div class="cs50-topic">Week 7 — SQL</div>
+                <div class="cs50-topic">Week 8 — HTML, CSS, JavaScript</div>
+                <div class="cs50-topic">Week 9 — Flask</div>
+                <div class="cs50-topic">Week 10 — Cybersecurity</div>
+            </div>
+
+            <a class="cs50-button" href="https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home"
+                target="_blank">View on edX</a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Find Me Online</h2>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/iradukunda-simon/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Simon2680" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        © Simon Iradukunda. all rights reserved 2025
+    </footer>
+
+</body>
+
+</html>
