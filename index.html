@@ -206,6 +206,47 @@
             background: #374151;
         }
 
+        /* PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-card {
+            background: #1F2937;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: left;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(96, 165, 250, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #60A5FA;
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            color: #60A5FA;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: #D1D5DB;
+            line-height: 1.6;
+        }
+
         /* COURSES CARD */
         .cs50-card {
             margin: 25px auto;
@@ -312,7 +353,7 @@
 
     <!-- HEADER -->
     <header id="home">
-        <img src="DSC09828.JPG" alt="Profile Picture" class="profile-pic">
+        <img src="ProfilePicture.jpg" alt="Profile Picture" class="profile-pic">
         <h1 class="title">Simon Iradukunda</h1>
         <p class="subtitle">Aspiring Computer Scientist & Mathematician</p>
         <p class="intro">First-Year (Freshman) at <a href="https://www.amherst.edu/" target="_blank">Amherst College</a>
@@ -353,7 +394,25 @@
     <!-- PROJECTS -->
     <section id="projects">
         <h2>Highlighted Projects</h2>
-        <p>More projects will be added soon.</p>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3><i class="fas fa-robot"></i> AI Debate Arena</h3>
+                <p>A serverless API for an AI debate arena that allows multiple AI models to debate topics in real-time. Designed to facilitate automated reasoning and argument generation comparisons.</p>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3><i class="fas fa-bicycle"></i> BikeShare</h3>
+                <p>The Bike Share System is a platform that leverages G-Suite automation through Google Apps Script to streamline bike checkouts, returns, and maintenance management, featuring automated email notifications and real-time database updates.</p>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h3><i class="fas fa-leaf"></i> Ecobalancer</h3>
+                <p>An educational game that prompts users to remove unnecessary animals from the food web to maintain ecosystem balance. This tool helps students understand food web dynamics and the delicate nature of ecological stability.</p>
+            </div>
+        </div>
     </section>
 
     <!-- COURSES -->
